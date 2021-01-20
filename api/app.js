@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
-import { User } from './models/user';
+import usersRoutes from './routes/users';
+import watchlistsRoutes from './routes/watchlists';
+import searchRoutes from './routes/search';
 
 async function startServer() {
 
@@ -11,18 +13,11 @@ async function startServer() {
     
         const app = express();
         const port = 3001;
-        
-        app.get('/create', (req, res) => {
-            console.log('in createed')
-            const newUser = new User({
-                email: 'kyle@gmail.com',
-                'username': 'kyletest', 
-                'password': 'test password'
-            });
 
-            newUser.save();
-        });
-        
+        app.use('/api/users', usersRoutes);
+        app.use('/api/watchlists', watchlistsRoutes);
+        app.use('/api/search', searchRoutes);
+
         app.listen(port, () => {
             console.log('Server Started')
         })
@@ -32,8 +27,6 @@ async function startServer() {
         console.log('errored')
     }
 }
-
-
 
 startServer();
 
