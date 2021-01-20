@@ -1,24 +1,44 @@
 const express = require('express');
 const mongoose = require('mongoose');
+import { User } from './models/user';
 
-mongoose.connect('mongodb://localhost/couchq', {useNewUrlParser: true, useUnifiedTopology: true});
+async function startServer() {
 
-const db = mongoose.connection;
+    try {
+        await mongoose.connect('mongodb://localhost/couchq', {useNewUrlParser: true, useUnifiedTopology: true});
 
-db.once('open', () => {
-    console.log('connected')
-});
+        const db = mongoose.connection;
+    
+        const app = express();
+        const port = 3001;
+        
+        app.get('/create', (req, res) => {
+            console.log('in createed')
+            const newUser = new User({
+                email: 'kyle@gmail.com',
+                'username': 'kyletest', 
+                'password': 'test password'
+            });
 
-const app = express();
-const port = 3001;
+            newUser.save();
+        });
+        
+        app.listen(port, () => {
+            console.log('Server Started')
+        })
+    
+    }
+    catch (err) {
+        console.log('errored')
+    }
+}
 
-app.get('/', (req, res) => {
-    res.send('Hello');
-});
 
-app.listen(port, () => {
-    console.log('Server Started')
-})
+
+startServer();
+
+
+
 
 // const resp = axios.get("https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup",
 //     {
