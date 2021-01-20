@@ -1,24 +1,30 @@
 const express = require('express');
 const router = express.Router();
+import { User } from '../models/user';
 
 router.get('/', (req, res) => {
-    res.send('Get all users')
+    console.log('Get all users')
+
+    User.find({}, (err, users) => {
+        res.send(users);
+        
+    });
 });
 
 router.get('/:id', (req, res) => {
-    res.send('Get one user')
+    console.log('Get one user')
 });
 
 router.post('/create', (req, res) => {
-    res.send('Create one user')
+    console.log('Create one user')
 });
 
 router.patch('/:id', (req, res) => {
-    res.send('Update one user')
+    console.log('Update one user')
 });
 
 router.delete('/:id', (req, res) => {
-    res.send('Delete one user')
+    console.log('Delete one user')
 });
 
 export default router;
