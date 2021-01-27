@@ -9,7 +9,7 @@ export default function Tabs() {
         bottom: 0;
         width: 100%;
         display: flex;
-        min-height: 50px;
+        min-height: 50px; 
 
         .tab {
             width: 50vw;
