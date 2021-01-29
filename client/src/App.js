@@ -1,9 +1,9 @@
 import './App.css';
 import useViewportSize from './hooks/useViewportSize';
 import { breakpoints } from './constants';
+import Watchlist from './views/watchlist';
 import Tabs from './components/tabs';
 import Search from './components/search';
-import Test from './components/test';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
@@ -15,8 +15,8 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/test">
-            <Test />
+          <Route path="/watchlist">
+            <Watchlist />
           </Route>
           <Route path="/">
             <Search />

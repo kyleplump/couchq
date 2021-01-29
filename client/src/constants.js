@@ -6,3 +6,8 @@ export const breakpoints = {
     md: 992,
     lg: 1200
 };
+
+export const routeNames = {
+    WATCHLIST: 'watchlist',
+    FIND: ''
+}
