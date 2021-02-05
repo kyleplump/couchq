@@ -18,7 +18,7 @@ async function startServer() {
         var corsOptions = {
             origin: 'http://localhost:3000',
             optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-        }
+        } 
         app.use(cors(corsOptions));
         
         app.use('/api/users', usersRoutes);
@@ -30,7 +30,7 @@ async function startServer() {
         });
     }
     catch (err) {
-        console.log('errored')
+        console.log('errored', err)
     }
 }
 

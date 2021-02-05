@@ -23,8 +23,11 @@ function App() {
           <Route path="/watchlist">
             <Watchlist />
           </Route>
-          <Route path="/">
+          <Route path="/find">
             <Search />
+          </Route>
+          <Route path="/">
+            <Watchlist />
           </Route>
         </Switch>
 

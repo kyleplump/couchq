@@ -9,5 +9,5 @@ export const breakpoints = {
 
 export const routeNames = {
     WATCHLIST: 'watchlist',
-    FIND: ''
+    FIND: 'find'
 }
