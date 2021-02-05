@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
 import axios from 'axios';
+import { API_KEYS } from '../config';
 
 router.get('/:query', (req, res) => {
     console.log('Search by string query');
     const resp = axios.get("https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup",
         {
             headers: {
-                "x-rapidapi-key": "da35f6c608msh371315fcdb593d4p1b5c6fjsn3071ffd8d513",
-                "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
+                "x-rapidapi-key": API_KEYS.UTELLY.KEY,
+                "x-rapidapi-host": API_KEYS.UTELLY.HOST,
                 "useQueryString": true
             },
             params: {

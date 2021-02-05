@@ -30,7 +30,7 @@ function App() {
             <Watchlist />
           </Route>
         </Switch>
-
+        
 
         {/* {viewportSize.width < breakpoints.md &&
           <Tabs />
