@@ -15,10 +15,9 @@ export default function MediaCard(props) {
                     <Icon mx={1} as={SiApple} />
                 </Box>
                 <Heading>{props.title}</Heading>
-                {/* <Text isTruncated>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam 
-                    sagittis imperdiet justo at molestie.
-                </Text> */}
+                <Text isTruncated>
+                    {props.blurb}
+                </Text>
                 <Box w="100%" display="flex" justifyContent="center" alignItems="center" mt={5}>
                     <Button colorScheme="teal" w="50%">Add</Button>
                 </Box>

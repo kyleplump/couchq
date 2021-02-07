@@ -1,6 +1,5 @@
 import { React } from 'react';
 import { Box, Text, Avatar, Icon } from '@chakra-ui/react';
-import { CgScreen } from 'react-icons/cg';
 import NetflixBadge from './locationBadges/netflixBadge';
 import HuluBadge from './locationBadges/huluBadge';
 import { BsArrowRight } from 'react-icons/bs';

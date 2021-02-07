@@ -19,7 +19,7 @@ export default function Search() {
 
         apiService.search(term).then((resp) => {
             console.log('RES: ', resp);
-            setResults(resp.results);  
+            setResults(resp);  
         });
     }
 

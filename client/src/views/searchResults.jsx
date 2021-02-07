@@ -7,7 +7,7 @@ export default function SearchResults(props) {
         <SimpleGrid columns={1} px={3} spacing={8}>
             {
                 props.items.map((item, index) => {
-                    return <MediaCard key={index} img={item.picture} title={item.name} />
+                    return <MediaCard key={index} img={item.picture} title={item.name} blurb={item.details.plotSummary.text} />
                 })
             }
         </SimpleGrid>
