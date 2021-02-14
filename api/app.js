@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+var bodyParser = require('body-parser');
+
 import usersRoutes from './routes/users';
 import watchlistsRoutes from './routes/watchlists';
 import searchRoutes from './routes/search';
@@ -20,6 +22,8 @@ async function startServer() {
             optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
         } 
         app.use(cors(corsOptions));
+        app.use(bodyParser.json());
+        app.use(bodyParser.urlencoded({ extended: true }));
         
         app.use('/api/users', usersRoutes);
         app.use('/api/watchlists', watchlistsRoutes);

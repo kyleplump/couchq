@@ -24,8 +24,8 @@ function SearchResults(props) {
 
     function addResult(item) {
 
-        api.
-    }
+        api.addItemToWatchlist(item);
+    }   
 
     return (
         <SimpleGrid columns={1} px={3} spacing={8}>

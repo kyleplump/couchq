@@ -15,4 +15,13 @@ export class APIService {
         });
     }
 
+    addItemToWatchlist(item) {
+        
+        return new Promise((resolve, reject) => {
+
+            axios.post(`${apiEndpoint}/api/watchlists/create`, { item: item }).then(() => {
+                console.log("doe from here")
+            })
+        });
+    }   
 }

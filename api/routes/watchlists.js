@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+import { Watchlist } from '../models/watchlist';
 
 router.get('/', (req, res) => {
     res.send('Get all watchlists')
@@ -10,7 +11,17 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/create', (req, res) => {
-    res.send('Create one watchlist')
+    console.log('Create one watchlist', req.body )
+    
+
+    Watchlist.create({ 
+        'id': '600880f0f3af21e880ed31c5',
+        'items': [ req.body.item ]
+    }).then(() => {
+        res.send('success')
+
+    });
+
 });
 
 router.patch('/:id', (req, res) => {
