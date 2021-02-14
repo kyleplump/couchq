@@ -52,6 +52,8 @@ async (req, res) => {
                 return result;
             }));
 
+            consol
+
             memo.cacheRequest(req.params.query, mediaData);
 
             res.send(mediaData);
@@ -73,7 +75,7 @@ async function fetchDetails(imdbID) {
     let details = [];
 
     try {
-        details = await axios.get("https://imdb8.p.rapidapi.com/title/get-overview-details",
+        details = await axios.get("https://movie-database-imdb-alternative.p.rapidapi.com/",
             {
                 headers: {
                     "x-rapidapi-key": API_KEYS.KEY,
@@ -81,9 +83,8 @@ async function fetchDetails(imdbID) {
                     "useQueryString": true
                 },
                 params: {
-                    "tconst": imdbID,
-                    // todo localization
-	                "currentCountry": "US"
+                    "i": imdbID,
+	                "r": "json"
                 }
             }
         );
