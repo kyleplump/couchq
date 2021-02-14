@@ -1,8 +1,11 @@
 import { SET_ACTIVE_MEDIA_ITEM } from './actionTypes';
 
-export function setActiveMediaItem(itemID) {
+export function setActiveMediaItem(itemID, item) {
     return {
         type: SET_ACTIVE_MEDIA_ITEM,
-        itemID,
+        payload: {
+            itemID,
+            item,
+        }
     }
 }

@@ -6,7 +6,7 @@ import { SiHulu, SiApple } from 'react-icons/si';
 export default function MediaCard(props) {
 
     return (
-        <Box borderWidth="1px" borderRadius="lg" boxShadow="lg" overflow="hidden" role="listitem">
+        <Box onClick={props.clicked} borderWidth="1px" borderRadius="lg" boxShadow="lg" overflow="hidden" role="listitem">
             <Image src={props.img} alt="Media Image" />
             <Box py={2} px={3}>
                 <Box display="flex" alignItems="center" justifyContent="flex-end">
@@ -19,7 +19,7 @@ export default function MediaCard(props) {
                     {props.blurb}
                 </Text>
                 <Box w="100%" display="flex" justifyContent="center" alignItems="center" mt={5}>
-                    <Button colorScheme="teal" w="50%">Add</Button>
+                    <Button colorScheme="teal" w="50%" onClick={props.onAdd}>Add</Button>
                 </Box>
             </Box>
         </Box>

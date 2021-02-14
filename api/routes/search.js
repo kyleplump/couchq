@@ -52,8 +52,6 @@ async (req, res) => {
                 return result;
             }));
 
-            consol
-
             memo.cacheRequest(req.params.query, mediaData);
 
             res.send(mediaData);
@@ -66,7 +64,7 @@ async (req, res) => {
         }
     }
     catch(err) {
-        console.error("ERROR FETCHING")
+        console.error("ERROR FETCHING", err)
     }
 });
 
