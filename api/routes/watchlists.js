@@ -15,6 +15,7 @@ router.post('/create', (req, res) => {
     
 
     Watchlist.create({ 
+        'user': '123456789',
         'id': '600880f0f3af21e880ed31c5',
         'items': [ req.body.item ]
     }).then(() => {

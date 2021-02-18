@@ -14,8 +14,8 @@ export default function (state = initialState, action) {
             const { itemID, item } = action.payload;
             return {
                 ...state,
-                itemID: itemID,
-                item: item
+                mediaItemID: itemID,
+                mediaItem: item
             };
 
             break;

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-const { Schema, ObjectId } = mongoose;
+const { Schema } = mongoose;
 
 export const watchlistSchema = new Schema({
-    "user": ObjectId,
+    "user": String,
     "items": [{}], 
 });
