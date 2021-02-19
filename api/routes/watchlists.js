@@ -6,8 +6,14 @@ router.get('/', (req, res) => {
     res.send('Get all watchlists')
 });
 
-router.get('/:id', (req, res) => {
-    res.send('Get one watchlist')
+router.get('/:userID', (req, res) => {
+    console.log('Get a Watchlist based on User ID');
+
+    Watchlist.findOne({ 'user': '123456789' }, (err, doc) => {
+        if(doc) {
+            res.send(doc.items);
+        }
+    });
 });
 
 router.post('/create', (req, res) => {
@@ -25,8 +31,20 @@ router.post('/create', (req, res) => {
 
 });
 
-router.patch('/:id', (req, res) => {
-    res.send('Update one watchlist')
+router.patch('', (req, res) => {
+    console.log('update watchlist based on user id')
+
+    Watchlist.findOne({ 'user': req.body.userID }, (err, doc) => {
+        console.log('found!: ', req.body.item)
+        if(doc) {
+            doc.items.push(req.body.item);
+        }
+
+        console.log("new one: ", doc);
+        Watchlist.updateOne({ 'user': req.body.userID }, doc).then(() => {
+            res.send("success")
+        })
+    })
 });
 
 router.delete('/:id', (req, res) => {

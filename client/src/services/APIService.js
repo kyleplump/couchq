@@ -15,11 +15,24 @@ export class APIService {
         });
     }
 
+    getWatchlist(userID) {
+
+        return new Promise((resolve, reject) => {
+
+            axios.get(`${apiEndpoint}/api/watchlists/${userID}`).then((resp) => {
+                resolve(resp.data);
+            })
+        });
+    }
+
     addItemToWatchlist(item) {
         
         return new Promise((resolve, reject) => {
+            // axios.post(`${apiEndpoint}/api/watchlists/create`, { 'item': item }).then(() => {
+            //     console.log("doe from here")
+            // })
 
-            axios.post(`${apiEndpoint}/api/watchlists/create`, { item: item }).then(() => {
+            axios.patch(`${apiEndpoint}/api/watchlists`, { 'userID': '123456789', item: item }).then(() => {
                 console.log("doe from here")
             })
         });

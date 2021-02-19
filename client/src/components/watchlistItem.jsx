@@ -10,12 +10,12 @@ export default function WatchlistItem(props) {
         <Box borderWidth="1px" px={6} py={4} pl={8} borderRadius="full" boxShadow="lg" overflow="hidden" 
             display="flex" justifyContent="space-between" alignItems="center" role="listitem">
             <Box>
-                <Text fontSize="1.3rem">{props.item.title}</Text>
+                <Text fontSize="1.3rem">{props.item.name}</Text>
                 <Box display="flex" justifyContent="flex-start" alignItems="center">
-                    {props.item.locations.map((location, index) => (
+                    {/* {props.item.locations.map((location, index) => (
                         location.includes('Netflix') && <NetflixBadge key={index} />
                         || location.includes('Hulu') && <HuluBadge key={index} />
-                    ))}
+                    ))} */}
                 </Box>
             </Box>
             <Icon fontSize="1.5rem" as={BsArrowRight} />
