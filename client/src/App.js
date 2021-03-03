@@ -1,5 +1,6 @@
 import './App.css';
 import Watchlist from './views/watchlist';
+import Login from './views/login';
 import Tabs from './components/tabs';
 import Header from './components/header';
 import Search from './components/search';
@@ -30,7 +31,7 @@ function App() {
               <MediaDetails />
             </Route>
             <Route path="/">
-              <Watchlist />
+              <Login />
             </Route>
           </Switch>
           

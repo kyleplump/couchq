@@ -1,0 +1,1 @@
+export const getWatchlist = store => store.watchlist;

@@ -1,7 +1,17 @@
 import axios from 'axios';
 import { apiEndpoint } from '../constants';
+import { getWatchlist } from '../state/selectors';
 
 export class APIService {
+
+    login(email, password) {
+
+        return new Promise((resolve, reject) => {
+            axios.post(`${apiEndpoint}/auth/login`, { 'email': email, 'password': password}).then((resp) => {
+                console.log('got back from login: ', resp.data);
+            });
+        });
+    }
     
     search(searchTerm) {
         
@@ -9,7 +19,12 @@ export class APIService {
 
             // const encodedSearchTerm = encodeURIComponent(searchTerm);
 
-            axios.get(`${apiEndpoint}/api/search/${searchTerm}`).then((resp) => {
+            const config = {
+                headers: {
+                    'Authorization': 'Bearer 12345',
+                }
+            }
+            axios.get(`${apiEndpoint}/api/search/${searchTerm}`, config).then((resp) => {
                 resolve(resp.data);
             });
         });
@@ -19,13 +34,19 @@ export class APIService {
 
         return new Promise((resolve, reject) => {
 
-            axios.get(`${apiEndpoint}/api/watchlists/${userID}`).then((resp) => {
+            const config = {
+                headers: {
+                    'Authorization': 'Bearer 12345',
+                }
+            }
+            axios.get(`${apiEndpoint}/api/watchlists/${userID}`, config).then((resp) => {
                 resolve(resp.data);
             })
         });
     }
 
     addItemToWatchlist(item) {
+
         
         return new Promise((resolve, reject) => {
             // axios.post(`${apiEndpoint}/api/watchlists/create`, { 'item': item }).then(() => {

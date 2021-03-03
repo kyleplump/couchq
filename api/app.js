@@ -6,6 +6,9 @@ var bodyParser = require('body-parser');
 import usersRoutes from './routes/users';
 import watchlistsRoutes from './routes/watchlists';
 import searchRoutes from './routes/search';
+import authRoutes from './routes/auth';
+
+import authMiddleware from './middlware/auth';
 
 async function startServer() {
 
@@ -25,9 +28,10 @@ async function startServer() {
         app.use(bodyParser.json());
         app.use(bodyParser.urlencoded({ extended: true }));
         
-        app.use('/api/users', usersRoutes);
-        app.use('/api/watchlists', watchlistsRoutes);
-        app.use('/api/search', searchRoutes);
+        app.use('/auth', authRoutes);
+        app.use('/api/users', authMiddlware, usersRoutes);
+        app.use('/api/watchlists', authMiddleware, watchlistsRoutes);
+        app.use('/api/search', authMiddleware, searchRoutes);
 
         app.listen(port, () => {
             console.log('Server Started')

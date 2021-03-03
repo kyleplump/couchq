@@ -1,7 +1,7 @@
 import { React } from 'react';
-import { Box, Text, Avatar, Icon } from '@chakra-ui/react';
-import NetflixBadge from './locationBadges/netflixBadge';
-import HuluBadge from './locationBadges/huluBadge';
+import { Box, Text, Icon } from '@chakra-ui/react';
+// import NetflixBadge from './locationBadges/netflixBadge';
+// import HuluBadge from './locationBadges/huluBadge';
 import { BsArrowRight } from 'react-icons/bs';
 
 export default function WatchlistItem(props) {
