@@ -21,7 +21,7 @@ async function startServer() {
         const port = 3001;
 
         var corsOptions = {
-            origin: 'http://localhost:3000',
+            origin: 'https://localhost:3000',
             optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
         } 
         app.use(cors(corsOptions));
@@ -29,7 +29,7 @@ async function startServer() {
         app.use(bodyParser.urlencoded({ extended: true }));
         
         app.use('/auth', authRoutes);
-        app.use('/api/users', authMiddlware, usersRoutes);
+        app.use('/api/users', authMiddleware, usersRoutes);
         app.use('/api/watchlists', authMiddleware, watchlistsRoutes);
         app.use('/api/search', authMiddleware, searchRoutes);
 

@@ -18,8 +18,16 @@ function App() {
     <Provider store={store}>
       <div className="App" style={{ paddingTop: '100px' }}>
         <Router>
-          <Header />
-          <Tabs />
+          
+          {
+            window.location.pathname !== '/' ? 
+            <>
+              <Header />
+              <Tabs />
+            </>
+             : ''
+          }
+          {/* <Tabs /> */}
           <Switch>
             <Route path="/watchlist">
               <Watchlist />

@@ -21,7 +21,6 @@ export default function (req, res, next) {
             // todo error
         }
 
-        console.log("user: ", user);
         next();
     })
 }
