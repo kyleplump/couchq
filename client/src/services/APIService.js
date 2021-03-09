@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { apiEndpoint } from '../constants';
-import { getWatchlist } from '../state/selectors';
+import AuthService from './AuthService';
 
 export class APIService {
 
@@ -9,6 +9,8 @@ export class APIService {
         return new Promise((resolve, reject) => {
             axios.post(`${apiEndpoint}/auth/login`, { 'email': email, 'password': password}).then((resp) => {
                 console.log('got back from login: ', resp.data);
+                const authService = AuthService.getInstance();
+                authService.setJWT(resp.data).then(() => resolve());
             });
         });
     }

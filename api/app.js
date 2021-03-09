@@ -7,7 +7,7 @@ import usersRoutes from './routes/users';
 import watchlistsRoutes from './routes/watchlists';
 import searchRoutes from './routes/search';
 import authRoutes from './routes/auth';
-
+ 
 import authMiddleware from './middlware/auth';
 
 async function startServer() {
@@ -21,7 +21,7 @@ async function startServer() {
         const port = 3001;
 
         var corsOptions = {
-            origin: 'https://localhost:3000',
+            origin: 'http://localhost:3000',
             optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
         } 
         app.use(cors(corsOptions));
